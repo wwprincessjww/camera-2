@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head><script src="javascript_generator.js"></script>
+  <head>
+    <script src="javascript_generator.js"></script>
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
     <script src="custom_blocks.js"></script>
     <script src="python_generator.js"></script>
@@ -145,10 +146,23 @@
       <category name="Functions" colour="290" custom="PROCEDURE"></category>
     </xml>
 
+    <!-- Add Run Button -->
+    <button id="runButton">Run</button>
+
     <!-- Initialize Blockly -->
     <script>
       const workspace = Blockly.inject('blocklyDiv', {
         toolbox: document.getElementById('toolbox')
+      });
+
+      // Event listener for the Run button
+      document.getElementById('runButton').addEventListener('click', function () {
+        const code = Blockly.JavaScript.workspaceToCode(workspace);
+        try {
+          eval(code); // Be cautious with eval; it's for prototyping only
+        } catch (error) {
+          console.error('Error in executing Blockly code:', error);
+        }
       });
     </script>
   </body>
