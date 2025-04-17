@@ -1,2 +1,16 @@
 <script src="custom_blocks.js"></script>
 <script src="python_generator.js"></script>
+
+<!-- Add this workspace setup -->
+<div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+<xml id="toolbox" style="display: none">
+  <category name="Custom Blocks" colour="160">
+    <block type="take_picture"></block>
+  </category>
+</xml>
+
+<script>
+  const workspace = Blockly.inject('blocklyDiv', {
+    toolbox: document.getElementById('toolbox')
+  });
+</script>
