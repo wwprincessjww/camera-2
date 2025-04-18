@@ -15,7 +15,6 @@
         background-color: #f1f1f1;
         padding: 10px;
       }
-
       .tab button {
         background-color: #4CAF50;
         color: white;
@@ -24,17 +23,14 @@
         cursor: pointer;
         font-size: 16px;
       }
-
       .tab button:hover {
         background-color: #45a049;
       }
-
       .blockly-container {
         display: flex;
         flex-direction: column;
         height: 100vh;
       }
-
       #blocklyDiv {
         flex: 1;
         border: 1px solid #ccc;
@@ -59,7 +55,6 @@
         <category name="Custom Blocks" colour="160">
           <block type="take_picture"></block>
         </category>
-
         <!-- Standard Blockly Categories -->
         <category name="Logic" colour="210">
           <block type="controls_if"></block>
@@ -108,7 +103,13 @@
           <block type="math_trig"></block>
           <block type="math_constant"></block>
           <block type="math_number_property"></block>
-          <block type="math_round"></block>
+          <block type="math_round">
+            <value name="NUM">
+              <shadow type="math_number">
+                <field name="NUM">3.1</field>
+              </shadow>
+            </value>
+          </block>
           <block type="math_on_list"></block>
           <block type="math_modulo"></block>
           <block type="math_constrain">
@@ -136,6 +137,7 @@
             </value>
           </block>
           <block type="math_random_float"></block>
+          <block type="math_atan2"></block>
         </category>
         <category name="Text" colour="160">
           <block type="text"></block>
@@ -154,30 +156,23 @@
               </block>
             </value>
           </block>
-          <block type="text_charAt"></block>
-          <block type="text_getSubstring"></block>
+          <block type="text_charAt">
+            <value name="VALUE">
+              <block type="variables_get">
+                <field name="VAR">text</field>
+              </block>
+            </value>
+          </block>
+          <block type="text_getSubstring">
+            <value name="STRING">
+              <block type="variables_get">
+                <field name="VAR">text</field>
+              </block>
+            </value>
+          </block>
           <block type="text_changeCase"></block>
           <block type="text_trim"></block>
           <block type="text_print"></block>
-          <block type="text_prompt_ext"></block>
-        </category>
-        <category name="Lists" colour="260">
-          <block type="lists_create_with"></block>
-          <block type="lists_repeat"></block>
-          <block type="lists_length"></block>
-          <block type="lists_isEmpty"></block>
-          <block type="lists_indexOf"></block>
-          <block type="lists_getIndex"></block>
-          <block type="lists_setIndex"></block>
-          <block type="lists_getSublist"></block>
-          <block type="lists_split"></block>
-          <block type="lists_sort"></block>
-        </category>
-        <category name="Colour" colour="20">
-          <block type="colour_picker"></block>
-          <block type="colour_random"></block>
-          <block type="colour_rgb"></block>
-          <block type="colour_blend"></block>
         </category>
         <category name="Variables" colour="330" custom="VARIABLE"></category>
         <category name="Functions" colour="290" custom="PROCEDURE"></category>
